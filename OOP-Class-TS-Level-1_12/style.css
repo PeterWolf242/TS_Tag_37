@@ -1,0 +1,197 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--color_berry: #c3aed6;
+	--color_chocolate: #d2b48c;
+	--color_mango: #f7d488;
+	--color_pistachio: #c4d6a4;
+	--color_vanilla: #f3e5ab;
+	--color_cream_white: #f5f5f5;
+	--color_red_soft: #ff6759;
+	--color_white: #f5f5f5;
+	--color_black: #070404;
+	--color_gray: #686868;
+	--border-width: 4px;
+	--transition: 0.3s all ease-in-out;
+}
+
+body {
+	background-color: var(--color_black);
+	color: var(--color_white);
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1 {
+	margin: 4rem auto;
+	color: var(--color_white);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 20px;
+	font-size: 2.5rem;
+}
+
+#ice-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 6rem;
+	margin: 0 auto 4rem auto;
+	padding: 0 1rem;
+}
+
+#ice-container .box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 28rem;
+	height: 30rem;
+	padding: 2rem 1rem;
+	border: none;
+	outline: none;
+	border-radius: 30px;
+	transition: var(--transition);
+}
+
+#ice-container .box .star {
+	font-size: 4rem;
+	font-weight: bold;
+	mix-blend-mode: plus-lighter;
+	margin-bottom: 2rem;
+}
+
+#ice-container .box h2 {
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: var(--color_black);
+	margin-bottom: 2rem;
+}
+
+#ice-container .box:hover {
+	box-shadow: 0 0 10px var(--color_cream_white);
+}
+
+/* Button zum Hinzufügen von Eiskugeln */
+#ice-container .box .addScoop {
+	width: 5rem;
+	color: var(--color_black);
+	margin: 2rem auto 0 auto;
+	padding: 10px 20px;
+	font-size: 1.4rem;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+#ice-container .box .addScoop:hover {
+	transform: scale(0.95);
+}
+
+/* Blaubeere - Basilikum */
+#ice-container .box:nth-of-type(1) {
+	border: var(--border-width) solid var(--color_berry);
+	box-shadow: 0 0 5px var(--color_berry), 0 0 20px var(--color_berry),
+		inset 0 0 20px var(--color_berry);
+}
+
+#ice-container .box:nth-of-type(1) .star {
+	color: var(--color_berry);
+}
+
+#ice-container .box:nth-of-type(1) h2 {
+	color: var(--color_berry);
+}
+
+#ice-container .box:nth-of-type(1) .addScoop {
+	background-color: var(--color_berry);
+}
+
+/* Schokolade */
+#ice-container .box:nth-of-type(2) {
+	border: var(--border-width) solid var(--color_chocolate);
+	box-shadow: 0 0 20px var(--color_chocolate),
+		inset 0 0 20px var(--color_chocolate);
+}
+
+#ice-container .box:nth-of-type(2) .star {
+	color: var(--color_chocolate);
+}
+
+#ice-container .box:nth-of-type(2) h2 {
+	color: var(--color_chocolate);
+}
+
+#ice-container .box:nth-of-type(2) .addScoop {
+	background-color: var(--color_chocolate);
+}
+
+/* Mango-Lassi */
+#ice-container .box:nth-of-type(3) {
+	border: var(--border-width) solid var(--color_mango);
+	box-shadow: 0 0 20px var(--color_mango), inset 0 0 20px var(--color_mango);
+}
+
+#ice-container .box:nth-of-type(3) .star {
+	color: var(--color_mango);
+}
+
+#ice-container .box:nth-of-type(3) h2 {
+	color: var(--color_mango);
+}
+
+#ice-container .box:nth-of-type(3) .addScoop {
+	background-color: var(--color_mango);
+}
+
+/* Pistazie */
+#ice-container .box:nth-of-type(4) {
+	border: var(--border-width) solid var(--color_pistachio);
+	box-shadow: 0 0 20px var(--color_pistachio),
+		inset 0 0 20px var(--color_pistachio);
+}
+
+#ice-container .box:nth-of-type(4) .star {
+	color: var(--color_pistachio);
+}
+
+#ice-container .box:nth-of-type(4) h2 {
+	color: var(--color_pistachio);
+}
+
+#ice-container .box:nth-of-type(4) .addScoop {
+	background-color: var(--color_pistachio);
+}
+
+/* Vanille */
+#ice-container .box:nth-of-type(5) {
+	border: var(--border-width) solid var(--color_vanilla);
+	box-shadow: 0 0 20px var(--color_vanilla), inset 0 0 20px var(--color_vanilla);
+}
+
+#ice-container .box:nth-of-type(5) .star {
+	color: var(--color_vanilla);
+}
+
+#ice-container .box:nth-of-type(5) h2 {
+	color: var(--color_vanilla);
+}
+
+#ice-container .box:nth-of-type(5) .addScoop {
+	background-color: var(--color_vanilla);
+}
+
+#ice-container .box p:not(.star) {
+	font-size: 1.6rem;
+	margin-top: 1rem;
+	color: var(--color_cream_white);
+}
