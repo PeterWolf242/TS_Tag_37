@@ -28,17 +28,17 @@ class IceCreamFlavor {
 }
 
 //* Methodenaufruf von getTotalPrice
-const vanille = new IceCreamFlavor("Vanille", 1.20, true);
+const vanille = new IceCreamFlavor("Vanilla", 1.20, true, "Ein cremiger, glatter Klassiker mit einem reichen, duftenden Vanillegeschmack.");
 
 vanille.printInfo();
 vanille.getTotalPrice(4);
 
 // Array mit 4 Instanzen der Klasse
 const iceCreamFlavors: IceCreamFlavor[] = [
-	new IceCreamFlavor("Blaubeere-Basilikum", 6.99, true),
-	new IceCreamFlavor("Schokolade", 4.99, true, "Klassischer Schokoladengeschmack"),
+	new IceCreamFlavor("Blueberry-Basil", 6.99, true, "Süße Blaubeeren treffen auf frisches Basilikum – ein fruchtig-herbes Geschmackserlebnis."),
+	new IceCreamFlavor("Chocolate", 4.99, true, "Klassischer Schokoladengeschmack"),
 	new IceCreamFlavor("Mango-Lassi", 5.99, false, "Exotische Mango mit Joghurt"),
-	new IceCreamFlavor("Pistazie", 6.49, true, "Cremige Pistazie mit echter Nuss")
+	new IceCreamFlavor("Pistachio", 6.49, true, "Cremige Pistazie mit echter Nuss")
 ];
 
 //* Hinzufügen von "Vanille" zu iceCreamFlavors
@@ -62,6 +62,7 @@ const IceCreams = iceCreamFlavors.map((ice) => {
 
 	// Name und Preis der Eissorte ausgeben
 	iceBox.innerHTML += `<h2>${ice._name}</h2>`;
+	iceBox.innerHTML += `<h3>${ice._description}</h3>`;
 	iceBox.innerHTML += `<p>Price: ${ice._price.toFixed(2)} Euro</p>`;
 
 	const scoopText = document.createElement("p");
@@ -96,4 +97,4 @@ if (IceContainer) {
 
 
 // Ausgabe der Eissorten im Array
-//console.log(iceCreamFlavors);
+console.log(iceCreamFlavors);
