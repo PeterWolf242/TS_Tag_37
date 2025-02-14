@@ -5,11 +5,11 @@
 }
 
 :root {
-	--color_berry: #c3aed6;
-	--color_chocolate: #d2b48c;
-	--color_mango: #f7d488;
-	--color_pistachio: #c4d6a4;
-	--color_vanilla: #f3e5ab;
+	--color_berry: #a765e5;
+	--color_chocolate: #956f3c;
+	--color_mango: #f6c150;
+	--color_pistachio: #b0d969;
+	--color_vanilla: #f7e59b;
 	--color_cream_white: #f5f5f5;
 	--color_red_soft: #ff6759;
 	--color_white: #f5f5f5;
@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-	margin: 4rem auto;
+	margin: 8rem auto;
 	color: var(--color_white);
 	text-align: center;
 	text-transform: uppercase;
@@ -36,14 +36,13 @@ h1 {
 }
 
 #ice-container {
-	width: 100%;
+	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	gap: 6rem;
+	gap: 4rem;
 	margin: 0 auto 4rem auto;
-	padding: 0 1rem;
 }
 
 #ice-container .box {
@@ -65,7 +64,6 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	font-size: 4rem;
-	/*background-color: white;*/
 	width: 3rem;
 	height: 3rem;
 	border-radius: 50%;
@@ -74,6 +72,7 @@ h1 {
 	padding: 32px 35px 38px 35px;
 }
 
+/* Eis-Titel */
 #ice-container .box h2 {
 	font-size: 1.6rem;
 	text-transform: uppercase;
@@ -82,6 +81,7 @@ h1 {
 	margin-bottom: 2rem;
 }
 
+/* Eis-Description */
 #ice-container .box h3 {
 	display: flex;
 	justify-content: center;
@@ -114,7 +114,7 @@ h1 {
 	transform: scale(0.95);
 }
 
-/* Blaubeere - Basilikum */
+/* Blueberry-Basil */
 #ice-container .box:nth-of-type(1) {
 	border: var(--border-width) solid var(--color_berry);
 	box-shadow: 0 0 5px var(--color_berry), 0 0 20px var(--color_berry),
@@ -135,7 +135,7 @@ h1 {
 	background-color: var(--color_berry);
 }
 
-/* Schokolade */
+/* Chocolate */
 #ice-container .box:nth-of-type(2) {
 	border: var(--border-width) solid var(--color_chocolate);
 	box-shadow: 0 0 20px var(--color_chocolate),
@@ -176,7 +176,7 @@ h1 {
 	background-color: var(--color_mango);
 }
 
-/* Pistazie */
+/* Pistachio */
 #ice-container .box:nth-of-type(4) {
 	border: var(--border-width) solid var(--color_pistachio);
 	box-shadow: 0 0 20px var(--color_pistachio),
@@ -197,7 +197,7 @@ h1 {
 	background-color: var(--color_pistachio);
 }
 
-/* Vanille */
+/* Vanilla */
 #ice-container .box:nth-of-type(5) {
 	border: var(--border-width) solid var(--color_vanilla);
 	box-shadow: 0 0 20px var(--color_vanilla), inset 0 0 20px var(--color_vanilla);
@@ -217,6 +217,7 @@ h1 {
 	background-color: var(--color_vanilla);
 }
 
+/* Styling p-tags (not Star) */
 #ice-container .box p:not(.star) {
 	font-size: 1.6rem;
 	margin-top: 1rem;

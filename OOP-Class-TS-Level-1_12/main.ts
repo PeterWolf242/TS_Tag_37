@@ -3,35 +3,37 @@
 //*********************************
 
 class IceCreamFlavor {
-	_name: string;
-	_price: number;
-	_isPopular: boolean;
-	_description: string;
+	name: string;
+	price: number;
+	isPopular: boolean;
+	description?: string;
+	scoops: number = 0;
+
 
 	// Der richtige Konstruktor
-	constructor(name: string, price: number, isPopular: boolean, description: string = "undefined") {
-		this._name = name;
-		this._price = price;
-		this._isPopular = isPopular;
-		this._description = description;
+	constructor(name: string, price: number, isPopular: boolean, description?: string) {
+		this.name = name;
+		this.price = price;
+		this.isPopular = isPopular;
+		this.description = description;
 	}
 
 	public printInfo() {
-		console.log(`${this._name} is ${this._isPopular ? "popular" : "not popular"} and costs ${this._price.toFixed(2)} €`);
+		console.log(`${this.name} is ${this.isPopular ? "popular" : "not popular"} and costs ${this.price.toFixed(2)} €`);
 	}
 
 	//* Getter "numberOfScoops"
-	public getTotalPrice(numberOfScoops: number): number {
-		const fullPrice = this._price * numberOfScoops;
+	public getTotalPrice(): number {
+		const fullPrice = this.price * this.scoops;
 		return fullPrice;
 	}
 }
 
 //* Methodenaufruf von getTotalPrice
-const vanille = new IceCreamFlavor("Vanilla", 1.20, true, "Ein cremiger, glatter Klassiker mit einem reichen, duftenden Vanillegeschmack.");
+const vanille = new IceCreamFlavor("Vanilla", 1.20, true);
 
 vanille.printInfo();
-vanille.getTotalPrice(4);
+vanille.getTotalPrice();
 
 // Array mit 4 Instanzen der Klasse
 const iceCreamFlavors: IceCreamFlavor[] = [
@@ -47,9 +49,6 @@ iceCreamFlavors.push(vanille);
 //* HTML-Element für die Ausgabe aus dem DOM holen
 const IceContainer = document.querySelector<HTMLElement>("#ice-container");
 
-//* Anfangswert der Eiskugeln setzen
-let scoops: number = 0;
-
 //* Erstellung der Boxen für jede Eissorte
 const IceCreams = iceCreamFlavors.map((ice) => {
 	const iceBox = document.createElement("div");
@@ -61,13 +60,21 @@ const IceCreams = iceCreamFlavors.map((ice) => {
 	iceBox.appendChild(star);
 
 	// Name und Preis der Eissorte ausgeben
-	iceBox.innerHTML += `<h2>${ice._name}</h2>`;
-	iceBox.innerHTML += `<h3>${ice._description}</h3>`;
-	iceBox.innerHTML += `<p>Price: ${ice._price.toFixed(2)} Euro</p>`;
+	iceBox.innerHTML += `<h2>${ice.name}</h2>`;
+
+	//Ausgabe der Description nach Prüfung ob sie vorhanden ist oder nicht
+	if (!ice.description || ice.description.length === 0) {
+		console.log("Keine Beschreibung verfügbar");
+		iceBox.innerHTML += `<h3>Keine Beschreibung verfügbar</h3>`;
+	} else iceBox.innerHTML += `<h3>${ice.description}</h3>`;
+
+	iceBox.innerHTML += `<p>Price: ${ice.price.toFixed(2)} Euro</p>`;
 
 	const scoopText = document.createElement("p");
-	scoopText.textContent = `Scoops: ${scoops}`;
+	scoopText.textContent = `Scoops: ${ice.scoops}`;
 	iceBox.appendChild(scoopText);
+
+	iceBox.innerHTML += `<p>Total Price: ${ice.getTotalPrice()} Euro</p>`;
 
 	// Button erstellen
 	const btnAddScoop = document.createElement("button");
@@ -76,10 +83,9 @@ const IceCreams = iceCreamFlavors.map((ice) => {
 
 	// Event Listener zum Hinzufügen einer Eiskugel
 	btnAddScoop.addEventListener("click", () => {
-		console.log(`${ice._name}: Button geklickt`);
-		scoops++;
-		scoopText.textContent = `Scoops: ${scoops}`;
-		console.log(`Anzahl der Eiskugeln: ${scoops}`);
+		ice.scoops++;
+		scoopText.textContent = `Scoops: ${ice.scoops}`;
+		console.log(`Anzahl der Eiskugeln: ${ice.scoops}`);
 	});
 
 	// Button hinzufügen
