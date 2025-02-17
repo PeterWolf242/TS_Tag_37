@@ -72,9 +72,12 @@ const IceCreams = iceCreamFlavors.map((ice) => {
 
 	const scoopText = document.createElement("p");
 	scoopText.textContent = `Scoops: ${ice.scoops}`;
-	iceBox.appendChild(scoopText);
 
-	iceBox.innerHTML += `<p>Total Price: ${ice.getTotalPrice()} Euro</p>`;
+	const totalPriceText = document.createElement("p");
+	totalPriceText.textContent = `Total Price: ${ice.getTotalPrice().toFixed(2)} Euro`;
+
+	iceBox.appendChild(totalPriceText);
+	iceBox.appendChild(scoopText);
 
 	// Button erstellen
 	const btnAddScoop = document.createElement("button");
@@ -84,6 +87,8 @@ const IceCreams = iceCreamFlavors.map((ice) => {
 	// Event Listener zum Hinzufügen einer Eiskugel
 	btnAddScoop.addEventListener("click", () => {
 		ice.scoops++;
+
+		totalPriceText.textContent = `Total Price: ${ice.getTotalPrice().toFixed(2)} Euro`;
 		scoopText.textContent = `Scoops: ${ice.scoops}`;
 		console.log(`Anzahl der Eiskugeln: ${ice.scoops}`);
 	});
